@@ -1,4 +1,4 @@
-
+﻿
 # coding: utf-8
 
 import pandas as pd
@@ -18,6 +18,8 @@ t=[whk.get_ydata() for whk in bp["whiskers"]]
 print("delete")
 print(123)
 # In[ ]:
+
+print('123')
 
 
 
