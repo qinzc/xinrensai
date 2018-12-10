@@ -15,7 +15,7 @@ plt.figure(figsize=(20.0, 10.0))
 #plt.show()
 bp=df.boxplot(return_type='dict')
 t=[whk.get_ydata() for whk in bp["whiskers"]]
-# plt.savefig('./sss.png')
+print("delete")
 print(123)
 # In[ ]:
 
