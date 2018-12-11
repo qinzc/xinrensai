@@ -17,8 +17,8 @@ def ReadAll():
     ser = train_df.iloc[:, 0:38].corrwith(train_df.target)
     dropCols = []
     for i in ser.index:
-        print ser[i]
-        if abs(ser[i]) < 0.0:
+        print(ser[i])
+        if abs(ser[i]) < 0.20:
             dropCols.append(i)
     print(dropCols)
     x = x.drop(columns=dropCols)
@@ -26,7 +26,7 @@ def ReadAll():
     bp = x.boxplot(return_type='dict')
     t = [whk.get_ydata() for whk in bp["whiskers"]]
     segs = []
-    for i in range(len(t) / 2):
+    for i in range(len(t) // 2):
         segs.append([t[i * 2][1], t[i * 2 + 1][1]])
 
     x.index = range(len(x))
@@ -42,7 +42,7 @@ def ReadAll():
             return t
 
     for j, col in enumerate(x.columns):
-        print j, col
+        print(j, col)
         for i in x.index:
             x.iloc[i, j] = myFloor(x.iloc[i, j], segs, j)
 
