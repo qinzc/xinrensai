@@ -50,9 +50,9 @@ def TrainModel_GBR(x,y):
 def TrainModel_Poly(x,y):
     polynomial = PolynomialFeatures(degree=4)  # 二次多项式
     x_transformed = polynomial.fit_transform(x)  # x每个数据对应的多项式系数
-    x_train, x_test, y_train, y_test = train_test_split(x_transformed, y, test_size=0.3, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(x_transformed, y, test_size=0.2, random_state=40)
     #linreg = LinearRegression()
-    linreg = ElasticNet(random_state=0,alpha=0.0001,l1_ratio = 0.5)
+    linreg = ElasticNet(random_state=0,alpha=0.0001,l1_ratio = 0.0)
     linreg.fit(x_train, y_train)
     print(linreg.coef_,linreg.intercept_)
     y_pred=linreg.predict(x_test)

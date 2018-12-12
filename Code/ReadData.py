@@ -8,6 +8,22 @@ def ReadTrain():
     x,y=df.iloc[:,0:38],df.iloc[:,[38]]
     return x,y
 
+
+def nReadAll():
+    from sklearn.decomposition import pca
+    train_df = pd.read_csv('../Data/zhengqi_train.txt', sep='\t')
+    train_x, train_y = train_df.iloc[:, 0:38], train_df.iloc[:, [38]]
+    test_x=pd.read_csv('../Data/zhengqi_test.txt', sep='\t')
+    x = train_x.append(test_x)
+
+    # PCA数据处理
+    pca = pca.PCA(n_components=0.95)  # 0.95
+    pca.fit(x)
+    x_pca = pca.transform(x)
+    ntrain_x, ntest_x, ntrain_y=x_pca[:2888,:],x_pca[2888:,:],train_y
+
+    return ntrain_x,ntest_x,ntrain_y
+
 def ReadAll():
     train_df = pd.read_csv('../Data/zhengqi_train.txt', sep='\t')
     train_x, train_y = train_df.iloc[:, 0:38], train_df.iloc[:, [38]]

@@ -14,7 +14,7 @@ def TestModel(model):
 def nTestModel(model,test_x):
     y_pred = model.predict(test_x)
     print(y_pred)
-    np.savetxt('output121120.txt',y_pred)
+    np.savetxt('output121212.txt',y_pred)
 
 
 

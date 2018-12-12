@@ -1,4 +1,4 @@
-from ReadData import ReadAll
+from ReadData import *
 from TrainModel import nTrainModel
 from TrainModel import TrainModel
 from TrainModel import *
@@ -9,10 +9,11 @@ from TestModel import nTestModel
 # TestModel(model)
 
 
-train_x,test_x,train_y=ReadAll()
-model=nTrainModel_Poly(train_x,train_y)
+train_x,test_x,train_y=nReadAll()
+model=TrainModel_Poly(train_x,train_y)
+#model=nTrainModel_Poly(train_x,train_y)
 #model=TrainModel_GBR_Liner(train_x,train_y)
 #model = nTrainModel(train_x,train_y)
 #model=TrainModel_SVR(train_x,train_y)
 #model=TrainModel_GBR(train_x,train_y)
-nTestModel(model,test_x)
+#nTestModel(model,test_x)
